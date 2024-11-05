@@ -1,4 +1,4 @@
-# LITA_CAPSTONE-PROJECT--salesdata
+# LITA_CAPSTONE-PROJECT-salesdata
 
 ### Project Title: Sales Performance Analysis for a Retail Store 
 
@@ -11,4 +11,10 @@ This secondary data source from LITA_CAPSTONE_PROJECT DATASET.
 ### Tools Used
 - Microsoft Excel for cleaning, analyzing and visualization of data
 - SQL - Structured Query Language for querying of data.
-- Power BI for data visualization 
+- Power BI for data visualization
+
+### Data Analysis
+- Excel
+     1. Perform an initial exploration of the sales data. Use pivot tables to summarize total sales by product, region, and month.
+         - An initial exploration of the sales data was done by removing duplicate that reduces the to 9921
+
