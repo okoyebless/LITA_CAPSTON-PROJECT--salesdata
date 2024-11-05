@@ -9,4 +9,6 @@ This project aims at generating an analysis on sales performance for a retail St
 This secondary data source from LITA_CAPSTONE_PROJECT DATASET.
 
 ### Tools Used
-Microsoft Excel
+- Microsoft Excel for cleaning, analyzing and visualization of data
+- SQL - Structured Query Language for querying of data.
+- Power BI for data visualization 
