@@ -30,7 +30,64 @@ This secondary data source from LITA_CAPSTONE_PROJECT DATASET.
      a. TOTALSALES FOR EACH EACH PRODUCT CATEGORY
 
         SELECT SUM(Quantity * unitprice)AS Totalsales, product FROM [dbo].[LITA SALESDATA]
-        GROUP BY Product
+          GROUP BY Product
+
+
+     b. NUMBER OF SALES TRANACTIONS IN EACH REGION
+
+        SELECT SUM(Quantity)as numberofsales, region FROM [dbo].[LITA SALESDATA]
+          GROUP BY region
+
+
+     c. HIGHEST SELLING PRODUCT BY TOTALSALES VALUE
+ 
+         SELECT TOP 1 product as Highest_Selling_Product, SUM(quantity * unitprice) as Totalsales 
+             FROM [dbo].[LITA SALESDATA]
+               GROUP BY product
+
+
+    d. TOTAL REVENUE PER PRODUCT
+
+          SELECT SUM(Quantity * unitprice)as TotalRevenue, product FROM [dbo].[LITA SALESDATA]
+              GROUP BY Product
+  
+
+    e. MONTHLY SALES TOTALS FOR  THE CURRENT YEAR
+ 
+          SELECT 
+              FORMAT(orderdate, 'yyyy-mm') as sales_month,
+	            SUM(quantity*unitprice) as monthly_sales_total
+                   FROM [dbo].[LITA SALESDATA]
+                     WHERE year(OrderDate) =2024
+                       GROUP BY FORMAT (orderdate, 'yyyy-mm')
+                         ORDER BY FORMAT (orderdate, 'yyyy-mm')
+  
+
+    f. TOP 5 CUSTOMER BY TOTAL PURCHASE AMOUNT
+
+           SELECT TOP 5 customer_id, SUM(Quantity * unitprice) AS TotalPurchase
+              FROM [dbo].[LITA SALESDATA]
+                GROUP BY customer_id
+                   ORDER BY TotalPurchase DESC
+  
+
+   g. PERCENTAGE OF TOTAL SALE CONTRIBUTED BY EACH REGION
+
+          SELECT region,  SUM(Quantity * unitprice) AS regionsalestotal,
+             (SUM(Quantity * unitprice)*100.0) /(SELECT SUM(Quantity * unitprice) FROM[dbo].[LITA SALESDATA])
+               AS Sales_Percentage 
+                 FROM [dbo].[LITA SALESDATA]
+                   GROUP BY region
+
+
+   h. PRODUCT WITH NO SALES IN THE LAST QUARTER.........
+
+            SELECT product FROM[dbo].[LITA SALESDATA]
+             GROUP BY product
+              HAVING SUM(CASE WHEN orderdate BETWEEN '2024-01-01' AND '2024-04-01'THEN  1 ELSE 0 END) =0
+
+
+
 
 
 
