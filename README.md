@@ -17,4 +17,5 @@ This secondary data source from LITA_CAPSTONE_PROJECT DATASET.
 - Excel
      1. Perform an initial exploration of the sales data. Use pivot tables to summarize total sales by product, region, and month.
          - An initial exploration of the sales data was done by removing duplicate that reduces the to 9921
+         - 
 
